@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+import { Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import './App.css';
-
+import Login from "./Components/Login/login";
+import Dashboard from "./Components/Dashboard/dashboard";
+import Admission from "./Components/Admission/admission";
+import Fee from "./Components/Fee/fee";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+  <Router>
+        <Routes>
+          <Route path="/" element={<Login/>}></Route>
+          <Route path="/dashboard" element={<Dashboard/>}></Route>
+          <Route path="/admission" element={<Admission/>}></Route>
+          <Route path="/fee" element={<Fee/>}></Route>
+          {/*Restricted Route*/}
+          {/* <Route path="/admin/home" element={<Portal admin={authenticate}/>}></Route> */}
+          {/* <Route path = "*" element={<NoPage/>}/> */}
+        </Routes>
+      </Router>
     </div>
   );
 }
